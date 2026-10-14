@@ -1,0 +1,197 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-heading: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+
+  body {
+    font-family: var(--font-body);
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    letter-spacing: -0.02em;
+  }
+}
+
+/* Custom Keyframe Animations */
+@keyframes heartbeat {
+  0% { transform: scale(1); }
+  14% { transform: scale(1.15); }
+  28% { transform: scale(1); }
+  42% { transform: scale(1.15); }
+  70% { transform: scale(1); }
+}
+
+@keyframes breath {
+  0%, 100% { transform: scale(1); opacity: 0.85; }
+  50% { transform: scale(1.08); opacity: 1; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 15px rgba(20, 184, 166, 0.25); }
+  50% { box-shadow: 0 0 30px rgba(20, 184, 166, 0.55); }
+}
+
+@keyframes scanLine {
+  0% { top: 0%; opacity: 0; }
+  15% { opacity: 1; }
+  85% { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+
+/* Ambulance & Emergency Animations */
+@keyframes sirenFlashRed {
+  0%, 100% { opacity: 1; fill: #ef4444; filter: drop-shadow(0 0 14px #ef4444); }
+  50% { opacity: 0.15; fill: #7f1d1d; filter: none; }
+}
+
+@keyframes sirenFlashBlue {
+  0%, 100% { opacity: 0.15; fill: #0c4a6e; filter: none; }
+  50% { opacity: 1; fill: #0284c7; filter: drop-shadow(0 0 14px #38bdf8); }
+}
+
+@keyframes sirenStrobeRed {
+  0% { opacity: 0.8; transform: scale(1.1); }
+  100% { opacity: 0.1; transform: scale(0.9); }
+}
+
+@keyframes sirenStrobeBlue {
+  0% { opacity: 0.1; transform: scale(0.9); }
+  100% { opacity: 0.8; transform: scale(1.1); }
+}
+
+@keyframes vehicleVibe {
+  0% { transform: translateY(0px); }
+  100% { transform: translateY(-2px); }
+}
+
+@keyframes spinWheel {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes spinRotor {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes roadMove {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes sonarRipple {
+  0% { transform: scale(0.2); opacity: 0.9; }
+  80% { opacity: 0.3; }
+  100% { transform: scale(2.8); opacity: 0; }
+}
+
+@keyframes beaconPulse {
+  0% { box-shadow: 0 0 0 0 rgba(225, 29, 72, 0.7); }
+  70% { box-shadow: 0 0 0 14px rgba(225, 29, 72, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(225, 29, 72, 0); }
+}
+
+@keyframes ecgScroll {
+  0% { stroke-dashoffset: 400; }
+  100% { stroke-dashoffset: 0; }
+}
+
+.animate-siren-beacon {
+  animation: beaconPulse 1.8s infinite;
+}
+
+.animate-sonar-1 {
+  animation: sonarRipple 2.4s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.animate-sonar-2 {
+  animation: sonarRipple 2.4s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
+  animation-delay: 0.8s;
+}
+
+.animate-sonar-3 {
+  animation: sonarRipple 2.4s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
+  animation-delay: 1.6s;
+}
+
+.animate-heartbeat {
+  animation: heartbeat 2.2s infinite ease-in-out;
+}
+
+.animate-breath {
+  animation: breath 4s infinite ease-in-out;
+}
+
+.animate-float {
+  animation: float 5s infinite ease-in-out;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 3s infinite ease-in-out;
+}
+
+.animate-scan-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #14b8a6, #0284c7, transparent);
+  animation: scanLine 2.5s infinite linear;
+}
+
+/* Glassmorphism Styles */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(226, 232, 240, 0.85);
+}
+
+.dark .glass-panel {
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(51, 65, 85, 0.7);
+}
+
+.glass-pill {
+  background: rgba(240, 253, 250, 0.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(204, 251, 241, 0.9);
+}
+
+.dark .glass-pill {
+  background: rgba(19, 78, 74, 0.4);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(20, 184, 166, 0.3);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.5);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(100, 116, 139, 0.8);
+}
